@@ -7,7 +7,6 @@
 
 namespace SimToken;
 
-require_once 'Exception\EncodingException.php';
 use Exception\EncodingException;
 
 class Encoder
