@@ -7,8 +7,6 @@
 
 namespace SimToken;
 
-require_once 'Exception\DecodingException.php';
-
 use Exception\DecodingException;
 
 class Decoder
