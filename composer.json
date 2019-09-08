@@ -1,6 +1,6 @@
 {
     "name": "dannyvilla/simtoken",
-    "description": "This package allow to create simple tokens by encoding plain text.",
+    "description": "This package allows to create simple tokens from plain text containing only alphanumeric characters",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -15,7 +15,7 @@
     },
     "autoload": {
     	"psr-0": {
-		"SimToken": "src/"
-	}
+            "SimToken": "src/"
+        }
     }
 }
