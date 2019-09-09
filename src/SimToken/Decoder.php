@@ -61,8 +61,9 @@ class Decoder
         foreach ($characters as $key => $character) {
             // Assume that only lines had to be read.
             if (($key) % 2 == 0) {
-                if (!$this->table->valueOf($character, $characters[$key + 1]))
+                if ($this->table->valueOf($character, $characters[$key + 1]) === false) {
                     throw new DecodingException('Impossible to decode this encoded value');
+                }
                 $value .= $this->table->valueOf($character, $characters[$key + 1]);
             }
         }
@@ -101,8 +102,9 @@ class Decoder
     public function perform($salted = true)
     {
         $value = $this->encoded_value;
-        for ($i = 1; $i <= $this->complexity; $i++)
+        for ($i = 1; $i <= $this->complexity; $i++) {
             $value = $this->decode($value, $salted);
+        }
         return $value;
     }
 }

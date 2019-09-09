@@ -7,6 +7,12 @@
 
 namespace SimToken;
 
+use function Sodium\randombytes_uniform;
+
+require ('Encoder.php');
+require ('Decoder.php');
+require ('Table.php');
+
 
 class SimToken
 {

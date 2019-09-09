@@ -13,9 +13,23 @@ composer require dannyvilla/simtoken
 ## Usage
 
 ```php
-$encoded = SimToken::encode('foo') 
-$encodedWithoutSalt = SimToken::encode('foo', false)
-$encodedWithComplexity3 = SimToken::encode('foo', true, 3)
+require 'vendor/autoload.php';
+
+$id = '100';
+$encoded = SimToken::encode($id); // with salt and complexity 1
+echo($encoded); // e8f8f8
+
+$encoded = SimToken::encode($id, false, 2); // without salt and complexity 2
+echo($encoded); // 188808880888
+
+$encoded = SimToken::encode($id, true, 2); // with salt and complexity 2
+echo($encoded); // b1h8b2h8b2h8
+
+$encoded = SimToken::encode($id, false, 3); // without salt and complexity 3
+echo($encoded); // 588888886888888868888888
+
+$decoded = SimToken::decode($encoded, false, 3); // Decode the last encoded
+echo($decoded); // 100
 ```
 
 ## Contributing
